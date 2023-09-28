@@ -1,4 +1,4 @@
-namespace ProcesosRecursos
+namespace ProcesosRecursos.Logica
 {
 
     /*
@@ -12,8 +12,10 @@ namespace ProcesosRecursos
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Process process = new Process();
+            process.a();
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new Form1());
         }
     }
 }

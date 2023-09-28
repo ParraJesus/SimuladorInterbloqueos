@@ -1,0 +1,14 @@
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\bin\Debug\net6.0-windows\ProcesosRecursos.exe
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\bin\Debug\net6.0-windows\ProcesosRecursos.deps.json
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\bin\Debug\net6.0-windows\ProcesosRecursos.runtimeconfig.json
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\bin\Debug\net6.0-windows\ProcesosRecursos.dll
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\bin\Debug\net6.0-windows\ProcesosRecursos.pdb
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.AssemblyInfoInputs.cache
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.AssemblyInfo.cs
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.csproj.CoreCompileInputs.cache
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.dll
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\refint\ProcesosRecursos.dll
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.pdb
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ProcesosRecursos.genruntimeconfig.cache
+D:\User\Documents\Universidad\Sexto Semestre\Sistemas Operativos\SimuladorProcesosRecursos\ProcesosRecursos\ProcesosRecursos\obj\Debug\net6.0-windows\ref\ProcesosRecursos.dll
