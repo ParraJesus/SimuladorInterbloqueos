@@ -20,6 +20,7 @@ namespace ProcesosRecursos.Logica
         private string name;
         private bool isExpropiable;      // Si es verdadero, el recurso es expropiable
         private bool isAvailable = true;       // Si es verdadero, el recurso está libre para ser usado
+        private DateTime conexionTime;
 
         #endregion
 
@@ -39,6 +40,7 @@ namespace ProcesosRecursos.Logica
         public string Name { get => name; set => name = value; }
         public bool IsExpropiable { get => isExpropiable; set => isExpropiable = value; }
         public bool IsAvailable { get => isAvailable; set => isAvailable = value; }
+        public DateTime ConexionTime { get => conexionTime; set => conexionTime = value; }
 
         #endregion
     }

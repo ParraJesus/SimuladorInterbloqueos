@@ -12,8 +12,13 @@ namespace ProcesosRecursos.Logica
         [STAThread]
         static void Main()
         {
-            Process process = new Process();
-            process.a();
+            List<Resource> resources = new List<Resource>();
+
+            resources.Add(new Resource("a", true));
+            resources.Add(new Resource("b", true));
+
+            Process process = new Process("maquina", resources);
+
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
         }
