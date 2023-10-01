@@ -17,8 +17,6 @@ namespace ProcesosRecursos.Logica
     {
         #region Attributes
 
-        private List<Process> processes = new List<Process>(); //Lista de procesos que se van a manejar
-
         private string name;
         private bool isExpropiable;      // Si es verdadero, el recurso es expropiable
         private bool isAvailable = true;       // Si es verdadero, el recurso está libre para ser usado
@@ -43,8 +41,6 @@ namespace ProcesosRecursos.Logica
         public bool IsExpropiable { get => isExpropiable; set => isExpropiable = value; }
         public bool IsAvailable { get => isAvailable; set => isAvailable = value; }
         public DateTime ConexionTime { get => conexionTime; set => conexionTime = value; }
-        internal List<Process> Processes { get => processes; set => processes = value; }
-
         #endregion
     }
 }

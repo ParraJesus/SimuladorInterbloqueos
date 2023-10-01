@@ -19,7 +19,7 @@ namespace ProcesosRecursos.Logica
             this.resources = resources;
             this.processes = processes;
 
-            assignProcessesAutomatically();
+            assignResourcessAutomatically();
         }
 
         //Constructor para cuando se quieren asignar los procesos de manera manual
@@ -35,67 +35,33 @@ namespace ProcesosRecursos.Logica
         #endregion
 
         //Distribuir para cada recurso un número igual de procesos
-        public void assignProcessesAutomatically()
+        public void assignResourcessAutomatically()
         {
-            int totalProcessors = resources.Count;                         //Total de procesadores
-            int processesPerProcessor = processes.Count / totalProcessors;  //Total de Procesos para cada procesador
-            int remainingProcesses = processes.Count % totalProcessors;     //Residuo, si lo hay
+            int totalProcesses = processes.Count;
+            int resourcesPerProcess = processes.Count/totalProcesses;
+            int remainingResources = processes.Count % totalProcesses;
 
             int startIndex = 0;
 
-            foreach (var resource in resources) //Para cada procesador dentro de la lista
+            foreach (Process process in processes) 
             {
-                int numProcesses = processesPerProcessor;
+                int numResources = resourcesPerProcess;
 
-                if (remainingProcesses > 0)
+                if (remainingResources > 0) 
                 {
-                    numProcesses++;
-                    remainingProcesses--;   //Se deshace del residuo cuando el número de procesos es impar
+                    numResources++;
+                    remainingResources--;
                 }
 
-                List<Process> processesForProcessor = processes.GetRange(startIndex, numProcesses);
-                resource.Processes = processesForProcessor;
-                startIndex += numProcesses;
-            }
-        }
-
-        //El usuario puede escoger a qué recurso va cada proceso
-        public void assignProcessesManually()
-        {
-            foreach (var kvp in processesIndex)
-            {
-                int resourceIndex = kvp.Key;
-                List<int> processIndices = kvp.Value;
-
-                if (resourceIndex >= 0 && resourceIndex < resources.Count)
-                {
-                    if (processes[resourceIndex].Resources == null)
-                    {
-                        processes[resourceIndex].Resources = new List<Resource>();
-                    }
-
-                    foreach (int processIndex in processIndices)
-                    {
-                        if (processIndex >= 0 && processIndex < processes.Count)
-                        {
-                            resources[resourceIndex].Processes.Add(processes[processIndex]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error: El índice de proceso está fuera de rango para el recurso en la posición " + resourceIndex);
-                        }
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Error: El índice de recurso está fuera de rango en el diccionario de índices.");
-                }
+                List<Resource> resourcesForProcess = resources.GetRange(startIndex, numResources);
+                process.Resources = resourcesForProcess;
+                startIndex += numResources;
             }
 
-            // Imprimir los procesos asignados a cada recurso
-            foreach (var resource in resources)
+            // Imprimir los recursos asignados a cada proceso
+            foreach (var process in processes)
             {
-                Debug.WriteLine("Recurso " + resource.Name + ": " + string.Join(", ", resource.Processes.Select(p => p.Name)));
+                Debug.WriteLine("El proceso " + process.Name + " está relacionado con los recursos: " + string.Join(", ", process.Resources.Select(r => r.Name)));
             }
         }
 

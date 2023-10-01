@@ -60,7 +60,10 @@ namespace ProcesosRecursos.Logica
             Debug.WriteLine("Proceso " + Name + " intenta conectar al recurso: " + resource.Name + " en tiempo: " + initialTime);
             lock (resource)
             {
+                Debug.WriteLine("Proceso " + Name + " se conectó al recurso: " + resource.Name + " en tiempo: " + DateTime.Now);
+
                 Thread.Sleep(5000); // Simula el uso del recurso
+
                 finalTime = DateTime.Now;
                 Debug.WriteLine("Proceso " + Name + " ha terminado de usar el recurso: " + resource.Name + " en tiempo: " + finalTime);
             }
