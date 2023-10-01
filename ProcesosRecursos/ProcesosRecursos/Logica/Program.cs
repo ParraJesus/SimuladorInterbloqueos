@@ -1,3 +1,7 @@
+using Microsoft.VisualBasic.Devices;
+using System.Diagnostics;
+using System.Threading;
+
 namespace ProcesosRecursos.Logica
 {
 
@@ -9,15 +13,10 @@ namespace ProcesosRecursos.Logica
 
     internal static class Program
     {
+
         [STAThread]
         static void Main()
         {
-            List<Resource> resources = new List<Resource>();
-
-            resources.Add(new Resource("a", true));
-            resources.Add(new Resource("b", true));
-
-            Process process = new Process("maquina", resources);
 
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
