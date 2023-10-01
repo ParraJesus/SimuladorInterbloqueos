@@ -21,7 +21,7 @@ namespace ProcesosRecursos.Logica
             {
                 new Resource("A", true),
                 new Resource("B", true),
-                new Resource("C", true),
+                new Resource("C", true)
             };
 
             List<Process> processes = new List<Process>
@@ -40,7 +40,7 @@ namespace ProcesosRecursos.Logica
 
             Thread thread = new Thread(() => 
             {
-                foreach (Resource resource in resources)
+                foreach (Resource resource in processes[0].Resources)
                 {
                     processes[0].requestResource(resource);
                 }
@@ -49,7 +49,7 @@ namespace ProcesosRecursos.Logica
 
             Thread thread1 = new Thread(() => 
             {
-                foreach (Resource resource in resources)
+                foreach (Resource resource in processes[1].Resources)
                 {
                     processes[1].requestResource(resource);
                 }
