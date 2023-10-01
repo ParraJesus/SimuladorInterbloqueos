@@ -40,6 +40,19 @@ namespace ProcesosRecursos.Logica
 
         #endregion
 
+        public void useResources() 
+        {
+            Thread thread = new Thread(() =>
+            {
+                foreach (Resource resource in resources)
+                {
+                    requestResource(resource);
+                }
+            });
+
+            thread.Start();
+        }
+
         public void requestResource(Resource resource)
         {
             initialTime = DateTime.Now;

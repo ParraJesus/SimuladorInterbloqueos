@@ -38,25 +38,8 @@ namespace ProcesosRecursos.Logica
 
             Scheduler scheduler = new Scheduler(resources, processes, processesIndex);
 
-            Thread thread = new Thread(() => 
-            {
-                foreach (Resource resource in processes[0].Resources)
-                {
-                    processes[0].requestResource(resource);
-                }
-            });
-
-
-            Thread thread1 = new Thread(() => 
-            {
-                foreach (Resource resource in processes[1].Resources)
-                {
-                    processes[1].requestResource(resource);
-                }
-            });
-
-            thread.Start();
-            thread1.Start();
+            processes[0].useResources();
+            processes[1].useResources();
 
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
