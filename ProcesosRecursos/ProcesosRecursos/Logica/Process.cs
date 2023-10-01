@@ -25,8 +25,6 @@ namespace ProcesosRecursos.Logica
 
         private List<Resource> resources = new List<Resource>();
 
-        private bool canRequest = true;
-
         private int currentResourceIndex = 0;
 
         #endregion
@@ -35,27 +33,12 @@ namespace ProcesosRecursos.Logica
 
         public Process() { }
 
-        public Process(string nombre, List<Resource> recursos)
+        public Process(string nombre)
         {
             this.name = nombre;
-            this.resources = recursos;
-
-            requestCycle();
         }
 
         #endregion
-
-        public void requestCycle() 
-        {
-
-            while (canRequest)
-            {
-
-                requestResource();
-
-                Thread.Sleep(2000);
-            }
-        }
 
         public void requestResource()
         {

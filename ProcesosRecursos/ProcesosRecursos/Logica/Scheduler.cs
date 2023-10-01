@@ -13,8 +13,8 @@ namespace ProcesosRecursos.Logica
 
         private List<Resource> resources = new List<Resource>(); // Lista de procesadores con los que se van a trabajar
         private List<Process> processes = new List<Process>(); // Lista de procesos que se van a manejar
-        private List<int> processesIndex = new List<int>(); // Lista de índices que relacionan los procesadores con los procesos
-
+        //private List<int> processesIndex = new List<int>(); // Lista de índices que relacionan los procesadores con los procesos
+        Dictionary<int, List<int>> processesIndex = new Dictionary<int, List<int>>();
         #endregion
 
         #region Constructors
@@ -29,7 +29,7 @@ namespace ProcesosRecursos.Logica
         }
 
         //Constructor para cuando se quieren asignar los procesos de manera manual
-        public Scheduler(List<Resource> resources, List<Process> processes, List<int> processesIndex)
+        public Scheduler(List<Resource> resources, List<Process> processes, Dictionary<int, List<int>> processesIndex)
         {
             this.resources = resources;
             this.processes = processes;
@@ -66,7 +66,7 @@ namespace ProcesosRecursos.Logica
         }
 
         //El usuario puede escoger a qué procesador va cada proceso
-        public void assignProcessesManually()
+        /*public void assignProcessesManually()
         {
             for (int i = 0; i < processes.Count; i++)
             {
@@ -74,9 +74,9 @@ namespace ProcesosRecursos.Logica
 
                 if (index >= 0 && index < resources.Count)
                 {
-                    if (resources[index].Processes == null)
+                    if (processes[index].Resources == null)
                     {
-                        resources[index].Processes = new List<Process>();
+                        processes[index].Resources = new List<Resource>();
                     }
 
                     resources[index].Processes.Add(processes[i]);
@@ -86,25 +86,65 @@ namespace ProcesosRecursos.Logica
                     Console.WriteLine("Error: El índice de procesador está fuera de rango para el proceso en la posición " + i);
                 }
             }
+        }*/
+
+        public void assignProcessesManually()
+        {
+            foreach (var kvp in processesIndex)
+            {
+                int resourceIndex = kvp.Key;
+                List<int> processIndices = kvp.Value;
+
+                if (resourceIndex >= 0 && resourceIndex < resources.Count)
+                {
+                    if (processes[resourceIndex].Resources == null)
+                    {
+                        processes[resourceIndex].Resources = new List<Resource>();
+                    }
+
+                    foreach (int processIndex in processIndices)
+                    {
+                        if (processIndex >= 0 && processIndex < processes.Count)
+                        {
+                            resources[resourceIndex].Processes.Add(processes[processIndex]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: El índice de proceso está fuera de rango para el recurso en la posición " + resourceIndex);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: El índice de recurso está fuera de rango en el diccionario de índices.");
+                }
+            }
+
+            // Imprimir los procesos asignados a cada recurso
+            foreach (var resource in resources)
+            {
+                Debug.WriteLine("Recurso " + resource.Name + ": " + string.Join(", ", resource.Processes.Select(p => p.Name)));
+            }
         }
+
 
         //Imprime todos los procesos dentro de un procesador
         public void showProcesses(int resource)
         {
             if (resource < resources.Count)
             {
-                Debug.WriteLine("procesos dentro del procesador " + resource + ": ");
+                Debug.WriteLine("Procesos emparejados al recurso " + resources[resource].Name + ": ");
 
                 for (int i = 0; i < resources[resource].Processes.Count; i++)
                 {
-                    Debug.WriteLine(resources[resource].Processes[i].Name + ", " + resources[resource].Processes[i].Priority);
+                    Debug.WriteLine(resources[resource].Processes[i].Name);
                 }
             }
-            else Debug.WriteLine("No existe tal procesador");
+            else Debug.WriteLine("No existe tal recurso");
         }
 
         #region GettersSetters
-        public List<int> ProcessesIndex { get => processesIndex; set => processesIndex = value; }
+        public Dictionary<int, List<int>> ProcessesIndex { get => processesIndex; set => processesIndex = value; }
         public List<Process> Processes { get => processes; set => processes = value; }
         public List<Resource> Resources { get => resources; set => resources = value; }
 
