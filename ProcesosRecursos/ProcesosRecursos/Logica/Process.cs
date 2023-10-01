@@ -40,11 +40,16 @@ namespace ProcesosRecursos.Logica
 
         #endregion
 
-        public void requestResource()
+        public void requestResource(Resource resource)
         {
-            Resource resource = resources[currentResourceIndex];
-
-            Debug.WriteLine("proceso " + name + " conectando al recurso:" + currentResourceIndex + 1);
+            Debug.WriteLine("Proceso " + Name + " intenta conectar al recurso: " + resource.Name);
+            lock (resource)
+            {
+                Thread.Sleep(2000); // Simula el uso del recurso
+                Debug.WriteLine("Proceso " + Name + " ha terminado de usar el recurso: " + resource.Name);
+                
+            }
+            Thread.Sleep(2000);
         }
 
 
